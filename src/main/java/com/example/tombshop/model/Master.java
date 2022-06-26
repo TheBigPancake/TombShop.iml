@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "masters")
@@ -19,7 +20,7 @@ import java.util.List;
 public class Master {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int master_id;
+    private Integer master_id;
     @NotBlank
     @Size(max = 70)
     private String full_name;
@@ -31,5 +32,5 @@ public class Master {
     private String email;
 
     @ManyToMany(mappedBy = "masters")
-    private List<Tomb> tombs;
+    private List<Tomb> tombs = new ArrayList<>();
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "tags")
@@ -18,11 +19,11 @@ import java.util.List;
 public class Tag {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int tag_id;
+    private Integer tag_id;
     @NotBlank
     @Size(max = 50)
     private String name;
 
     @ManyToMany(mappedBy = "tags")
-    private List<Tomb> tombs;
+    private List<Tomb> tombs = new ArrayList<>();
 }

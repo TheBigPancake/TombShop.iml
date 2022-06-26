@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "orders")
@@ -16,7 +17,7 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int order_id;
+    private Integer order_id;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
@@ -32,6 +33,6 @@ public class Order {
     @JoinTable(name = "order_tombs",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "tomb_id"))
-    private List<Tomb> tombs;
+    private List<Tomb> tombs = new ArrayList<>();
 
 }

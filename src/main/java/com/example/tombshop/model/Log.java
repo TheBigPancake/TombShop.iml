@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int log_id;
+    private Integer log_id;
     @Enumerated(EnumType.STRING)
     private LogTypes type;
     @NotBlank

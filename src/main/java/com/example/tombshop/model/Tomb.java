@@ -17,7 +17,7 @@ import java.util.List;
 public class Tomb {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int tomb_id;
+    private Integer tomb_id;
 
     @NotBlank
     @Size(max = 20)
@@ -35,4 +35,7 @@ public class Tomb {
             joinColumns = @JoinColumn(name = "tomb_id"),
             inverseJoinColumns = @JoinColumn(name = "master_id"))
     private List<Master> masters = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "tombs")
+    private List<Order> orders = new ArrayList<>();
 }
